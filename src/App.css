@@ -1,0 +1,255 @@
+/* =========================================================
+   FINAL UI / UX POLISH
+   ========================================================= */
+
+/* Smooth page appearance */
+.main-content {
+  animation: pageFadeIn 0.35s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better card interaction */
+.stat-card,
+.library-prompt-card,
+.prompt-card,
+.prompt-form,
+.prompt-details-card,
+.ai-assistant-card,
+.ai-result-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.stat-card:hover,
+.library-prompt-card:hover,
+.prompt-card:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+/* Better primary button */
+.primary-btn:hover,
+.auth-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.12);
+}
+
+/* Better navigation */
+.nav-item {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.12);
+}
+
+/* Better category badges */
+.library-category,
+.category-badge {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Better icon buttons */
+.icon-btn,
+.copy-btn,
+.view-btn,
+.cancel-btn,
+.back-btn {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.icon-btn:hover,
+.copy-btn:hover,
+.view-btn:hover,
+.cancel-btn:hover,
+.back-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Search/filter area if present */
+.search-container,
+.search-bar,
+.prompt-search {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Better text readability */
+.library-description,
+.prompt-card p,
+.prompt-details-description,
+.ai-section-heading p {
+  max-width: 720px;
+}
+
+/* Empty states */
+.empty-state {
+  padding: 50px 25px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 14px;
+}
+
+.empty-state h3 {
+  color: #111827;
+  font-size: 16px;
+}
+
+.empty-state p {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Loading state */
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Better focus accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recent-grid,
+  .library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .main-content {
+    margin-left: 210px;
+    padding: 22px;
+  }
+
+  .welcome-section,
+  .prompts-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .app-layout {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  .stats-grid,
+  .recent-grid,
+  .library-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-user {
+    margin-top: 10px;
+  }
+
+  .welcome-section h2,
+  .prompts-page-header h2,
+  .ai-assistant-title h2 {
+    font-size: 21px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .prompt-details-top {
+    flex-direction: column;
+  }
+
+  .prompt-details-actions {
+    flex-wrap: wrap;
+  }
+
+  .auth-page {
+    padding: 18px;
+  }
+
+  .auth-card {
+    padding: 22px;
+  }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
